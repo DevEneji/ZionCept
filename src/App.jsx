@@ -545,6 +545,46 @@ function FeaturedProjects() {
   );
 }
 
+function useCountUp(target, duration = 2000) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+
+        const numericValue = parseFloat(target);
+        const suffix = target.toString().replace(/[0-9]/g, ''); // captures '+', 'k', '%', leading zeros etc
+        const start = performance.now();
+
+        const tick = (now) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3); // ease out cubic
+          const current = Math.floor(eased * numericValue);
+          // Preserve leading zero format (e.g. "09")
+          el.textContent = target.toString().startsWith('0')
+            ? String(current).padStart(target.toString().length, '0')
+            : current + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return ref;
+}
+
 function Numbers() {
   const stats = [
     ["12", "Years of practice"],
@@ -556,7 +596,7 @@ function Numbers() {
     <section className="numbers section">
       {stats.map(([number, label]) => (
         <div className="number-item" key={label} data-reveal>
-          <strong>{number}</strong>
+          <strong ref={useCountUp(number)}>{number}</strong>
           <span>{label}</span>
         </div>
       ))}
