@@ -280,7 +280,7 @@ function SiteChrome() {
   return (
     <>
       <header className={`nav ${hidden ? "nav--hidden" : ""}`}>
-        <Link to="/" className="brand" aria-label="Zion Concept home">
+        <Link to="/" className="brand" aria-label="ZionCept home">
           <img src="/logo.png" alt="ZionCept Consult" height="70" />
         </Link>
 
@@ -308,7 +308,7 @@ function SiteChrome() {
         aria-hidden={!open}
       >
         <div className="menu-top">
-        <Link to="/" className="brand" aria-label="Zion Concept home">
+        <Link to="/" className="brand" aria-label="ZionCept home">
           <img src="/logo.png" alt="ZionCept Consult" height="70" />
         </Link>
 
@@ -413,7 +413,7 @@ function Home() {
         </div>
         <div className="hero-overlay" />
         <div className="hero-content">
-          <p className="hero-kicker">Zion Concept · Architecture & Design</p>
+          <p className="hero-kicker">ZionCept Consult · Architecture & Design</p>
           <h1 className="hero-title">
             <span className="line">
               <span>Spaces</span>
@@ -471,7 +471,7 @@ function Home() {
           <img
             data-parallax
             src={projects[2].image}
-            alt="Zion Concept architectural project"
+            alt="ZionCept Consult architectural project"
             loading="lazy"
           />
         </div>
@@ -675,7 +675,7 @@ function Studio() {
         <div className="eyebrow">02 / Philosophy</div>
         <div>
           <h2 data-reveal>
-            Zion Concept is an architecture and design practice focused on
+          ZionCept Consult is an architecture and design practice focused on
             spaces that carry meaning.
           </h2>
           <p data-reveal>
@@ -728,10 +728,10 @@ function Contact() {
               className="contact-email"
               href="mailto:hello@zionconcept.com"
             >
-              hello@zionconcept.com <ArrowUpRight />
+              hello@zionceptconsult.com <ArrowUpRight />
             </a>
             <div className="contact-small">
-              <span>Lagos · Nigeria</span>
+              <span>Anambra · Nigeria</span>
               <span>Mon — Fri · 09:00 — 17:00</span>
             </div>
           </div>
@@ -888,9 +888,9 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-brand">
-        ZION
+        ZIONCEPT
         <br />
-        <em>CONCEPT</em>
+        <em>CONSULT</em>
       </div>
 
       <div className="footer-cols">
@@ -902,19 +902,19 @@ function Footer() {
         </div>
         <div>
           <span>Connect</span>
-          <a href="mailto:hello@zionconcept.com">Email</a>
+          <a href="mailto:hello@zionceptconsult.com">Email</a>
           <a href="#">Instagram</a>
           <a href="#">LinkedIn</a>
         </div>
         <div>
           <span>Location</span>
-          <p>Lagos · Nigeria</p>
+          <p>Anambra · Nigeria</p>
           <p>Architecture & Design</p>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} Zion Concept</span>
+        <span>© {new Date().getFullYear()} ZionCept Consult</span>
         <span>Built with intention.</span>
       </div>
     </footer>
